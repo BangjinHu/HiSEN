@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="mysqlgenerator" targetRuntime="MyBatis3">
+        <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/hisen"
+                        driverClass="com.mysql.jdbc.Driver"
+                        password="root"
+                        userId="hisen"/>
+        <!--生成Model(实体类，与数据库字段对应的bean)类存放位置-->
+        <javaModelGenerator targetPackage="com.hisen.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射(xxxmapper.xml)文件存放位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.hisen.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="appointment"/>
+        <table tableName="user"/>
+        <table tableName="user_info"/>
+
+    </context>
+
+</generatorConfiguration>
