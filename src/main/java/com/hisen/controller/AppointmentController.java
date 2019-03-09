@@ -19,6 +19,8 @@ public class AppointmentController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(AppointmentController.class);
+
     @Autowired
     private AppointmentService appointmentService;
 
@@ -30,6 +32,7 @@ public class AppointmentController {
         form.setUserNumber(userNumber);
         form.setHoldDay(holdDay);
         logger.info("借书入参：" + form.toString());
+        log.info("借书入参：" + form.toString());
         int appoint = appointmentService.appoint(form);
         String s = JSON.toJSONString(appoint > 0 ? "借书成功" : "借书失败");
         return s;

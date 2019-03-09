@@ -236,43 +236,56 @@
         <plugin>
           <groupId>org.eclipse.jetty</groupId>
           <artifactId>jetty-maven-plugin</artifactId>
-          <version>9.3.9.v20160517</version>
+          <version>9.3.10.v20160621</version>
           <configuration>
-            <connectors>
-              <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                <port>80</port>
-              </connector>
-            </connectors>
-
-            <encoding>UTF-8</encoding>
-            <scanIntervalSeconds>5</scanIntervalSeconds>
-            <stopKey>shutdown</stopKey>
-            <stopPort>9966</stopPort>
-            <webApp>
-              <contextPath>/</contextPath>
-            </webApp>
+            <contextXml>src/main/resources/jetty-contexts.xml</contextXml>
+            <webAppConfig>
+              <defaultsDescriptor>src/main/resources/jetty-contexts.xml</defaultsDescriptor>
+              <contextPath>/solr</contextPath>
+            </webAppConfig>
           </configuration>
-          <executions>
-            <execution>
-              <id>start-jetty</id>
-              <phase>pre-integration-test</phase>
-              <goals>
-                <goal>start</goal>
-              </goals>
-              <configuration>
-                <scanIntervalSeconds>0</scanIntervalSeconds>
-                <daemon>true</daemon>
-              </configuration>
-            </execution>
-            <execution>
-              <id>stop-jetty</id>
-              <phase>post-integration-test</phase>
-              <goals>
-                <goal>stop</goal>
-              </goals>
-            </execution>
-          </executions>
         </plugin>
+
+        <!--<plugin>-->
+          <!--<groupId>org.eclipse.jetty</groupId>-->
+          <!--<artifactId>jetty-maven-plugin</artifactId>-->
+          <!--<version>9.3.10.v20160621</version>-->
+          <!--<configuration>-->
+            <!--<connectors>-->
+              <!--<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">-->
+                <!--<port>80</port>-->
+              <!--</connector>-->
+            <!--</connectors>-->
+
+            <!--<encoding>UTF-8</encoding>-->
+            <!--<scanIntervalSeconds>5</scanIntervalSeconds>-->
+            <!--<stopKey>shutdown</stopKey>-->
+            <!--<stopPort>9966</stopPort>-->
+            <!--<webApp>-->
+              <!--<contextPath>/</contextPath>-->
+            <!--</webApp>-->
+          <!--</configuration>-->
+          <!--<executions>-->
+            <!--<execution>-->
+              <!--<id>start-jetty</id>-->
+              <!--<phase>pre-integration-test</phase>-->
+              <!--<goals>-->
+                <!--<goal>start</goal>-->
+              <!--</goals>-->
+              <!--<configuration>-->
+                <!--<scanIntervalSeconds>0</scanIntervalSeconds>-->
+                <!--<daemon>true</daemon>-->
+              <!--</configuration>-->
+            <!--</execution>-->
+            <!--<execution>-->
+              <!--<id>stop-jetty</id>-->
+              <!--<phase>post-integration-test</phase>-->
+              <!--<goals>-->
+                <!--<goal>stop</goal>-->
+              <!--</goals>-->
+            <!--</execution>-->
+          <!--</executions>-->
+        <!--</plugin>-->
 
         <plugin>
           <groupId>org.mybatis.generator</groupId>

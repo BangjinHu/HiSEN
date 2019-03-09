@@ -19,38 +19,40 @@ import java.util.List;
 @RequestMapping("/book")
 public class BookController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(AppointmentController.class);
 
     @Autowired
     private BookService bookService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    private String list(Model model){
-        List<Book> bookList = bookService.getList(0,1000);
-        model.addAttribute("bookList",bookList);
-        model.addAttribute("list",bookList);
-        return "list";
-    }
-
 //    @RequestMapping(value = "/list", method = RequestMethod.GET)
-//    @ResponseBody
-//    private List<Book> list(Model model){
-//        List<Book> bookList = bookService.getList(0,10);
-//        return bookList;
+//    private String list(Model model){
+//        List<Book> bookList = bookService.getList(0,1000);
+//        model.addAttribute("bookList",bookList);
+//        model.addAttribute("list",bookList);
+//        return "list";
 //    }
 
-    @RequestMapping(value = "/detail/{bookId}", method = RequestMethod.GET)
-    private String detail(@PathVariable("bookId") int bookId, Model model){
-        Book book = bookService.getById(bookId);
-        model.addAttribute("book",book);
-        return "detail";
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @ResponseBody
+    private List<Book> list(Model model){
+        List<Book> bookList = bookService.getList(0,10);
+        System.out.println(bookList.get(0).toString());
+        return bookList;
     }
 
 //    @RequestMapping(value = "/detail/{bookId}", method = RequestMethod.GET)
-//    @ResponseBody
-//    private Book detail(@PathVariable("bookId") int bookId, Model model){
+//    private String detail(@PathVariable("bookId") int bookId, Model model){
 //        Book book = bookService.getById(bookId);
-//        return book;
+//        model.addAttribute("book",book);
+//        return "detail";
 //    }
+
+    @RequestMapping(value = "/detail/{bookId}", method = RequestMethod.GET)
+    @ResponseBody
+    private Book detail(@PathVariable("bookId") int bookId, Model model){
+        Book book = bookService.getById(bookId);
+        return book;
+    }
 
 //    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 //    @ResponseBody

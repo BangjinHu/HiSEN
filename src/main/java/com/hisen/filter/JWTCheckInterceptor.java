@@ -23,7 +23,9 @@ public class JWTCheckInterceptor implements HandlerInterceptor {
         response.setCharacterEncoding("utf-8");
         String jwt = request.getHeader("Authorization");
         String name = request.getHeader("name");
+
         logger.info("JWTCheckInterceptor - jwt:{},name{}",jwt,name);
+
         if ("".equals(jwt) || "".equals(name) || null == jwt || null == name) {
             CommonResponse commonResponse = new CommonResponse();
             commonResponse.setResCode(CommonEnum.REQUEST_FAILED.getCode());
@@ -31,9 +33,12 @@ public class JWTCheckInterceptor implements HandlerInterceptor {
             responseMessage(response, response.getWriter(), commonResponse);
             return false;
         }
+
         // 解密信息
         JWTInfo jwtInfo = JWTUtil.unsign(jwt, JWTInfo.class);
+
         logger.info("jwt解密之后:{}", JSON.toJSONString(jwtInfo));
+
         if (jwtInfo == null) {
             CommonResponse commonResponse = new CommonResponse();
             commonResponse.setResCode(CommonEnum.REQUEST_FAILED.getCode());

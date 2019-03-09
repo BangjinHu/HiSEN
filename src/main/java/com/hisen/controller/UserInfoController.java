@@ -24,7 +24,10 @@ import static com.hisen.util.MD5Util.toMd5;
 @Controller
 @RequestMapping("/user")
 public class UserInfoController {
-    private Logger log = LoggerFactory.getLogger(this.getClass());
+
+    private Logger loger = LoggerFactory.getLogger(this.getClass());
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(AppointmentController.class);
+
     @Autowired
     private UserInfoService userInfoService;
 
@@ -32,8 +35,10 @@ public class UserInfoController {
     @ResponseBody
     public String login(HttpServletResponse res,HttpServletRequest req,UserLoginRequest request) {
         request.setPassword(toMd5(request.getPassword()));
+        loger.info("[UserInfoController] - [login] 入参-> "+request.toString());
         log.info("[UserInfoController] - [login] 入参-> "+request.toString());
         UserLoginResponse login = userInfoService.login(request);
+        loger.info("[UserInfoController] - [login] 出参-> "+login.toString());
         log.info("[UserInfoController] - [login] 出参-> "+login.toString());
 //    // 放置cookies
 //    Map<String,String> map = new HashMap<String, String>();

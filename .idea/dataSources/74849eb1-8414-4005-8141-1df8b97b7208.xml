@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hisen@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="hisen">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="account"/>
+    <schema id="4" parent="1" name="b2test_mod"/>
+    <schema id="5" parent="1" name="body"/>
+    <schema id="6" parent="1" name="book"/>
+    <schema id="7" parent="1" name="bookstore"/>
+    <schema id="8" parent="1" name="btest"/>
+    <schema id="9" parent="1" name="c1test"/>
+    <schema id="10" parent="1" name="c2test"/>
+    <schema id="11" parent="1" name="crm"/>
+    <schema id="12" parent="1" name="db_blog"/>
+    <schema id="13" parent="1" name="information_schema"/>
+    <schema id="14" parent="1" name="manager"/>
+    <schema id="15" parent="1" name="module"/>
+    <schema id="16" parent="1" name="mybatis"/>
+    <schema id="17" parent="1" name="mylab"/>
+    <schema id="18" parent="1" name="mysql"/>
+    <schema id="19" parent="1" name="o2o"/>
+    <schema id="20" parent="1" name="performance_schema"/>
+    <schema id="21" parent="1" name="personmanasyst"/>
+    <schema id="22" parent="1" name="see_weboa"/>
+    <schema id="23" parent="1" name="spring"/>
+    <schema id="24" parent="1" name="ssm"/>
+    <schema id="25" parent="1" name="sys"/>
+    <schema id="26" parent="1" name="user"/>
+    <schema id="27" parent="1" name="village"/>
+    <schema id="28" parent="1" name="work"/>
+    <table id="29" parent="2" name="appointment"/>
+    <table id="30" parent="2" name="book"/>
+    <table id="31" parent="2" name="user"/>
+    <table id="32" parent="2" name="user_info"/>
+    <column id="33" parent="29" name="book_id">
+      <Position>1</Position>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="29" name="id">
+      <Position>2</Position>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="29" name="user_number">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="29" name="appointment_time">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="37" parent="29" name="expect_return_time">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="38" parent="29" name="real_return_time">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="39" parent="29" name="status">
+      <Position>7</Position>
+      <Comment>0 借出；1 已还；2 超时未还</Comment>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="40" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="41" parent="30" name="book_id">
+      <Position>1</Position>
+      <Comment>图书ID</Comment>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="42" parent="30" name="name">
+      <Position>2</Position>
+      <Comment>图书名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="30" name="number">
+      <Position>3</Position>
+      <Comment>图书数量</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="30" name="detail">
+      <Position>4</Position>
+      <Comment>图书描述</Comment>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="45" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>book_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="46" parent="31" name="user_id">
+      <Position>1</Position>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="31" name="user_name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="31" name="user_phone">
+      <Position>3</Position>
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="31" name="user_address">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="31" name="user_number">
+      <Position>5</Position>
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="51" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id
+user_number</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="53" parent="32" name="name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="32" name="gender">
+      <Position>3</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="32" name="age">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="32" name="password">
+      <Position>5</Position>
+      <Comment>密码，MD5加密</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="32" name="user_state">
+      <Position>6</Position>
+      <Comment>0:正常,1:锁定,2:封禁</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="32" name="create_time">
+      <Position>7</Position>
+      <Comment>创建时间</Comment>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="59" parent="32" name="last_time">
+      <Position>8</Position>
+      <Comment>上次登录时间</Comment>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="60" parent="32" name="update_time">
+      <Position>9</Position>
+      <Comment>更新时间</Comment>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="61" parent="32" name="user_type">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="62" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
