@@ -2,9 +2,11 @@ package com.hisen.mapper;
 
 import com.hisen.entity.Book;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface BookMapper {
     Book getById(int bookId);
 

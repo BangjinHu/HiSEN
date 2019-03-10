@@ -100,17 +100,17 @@
 
         <!-- 验证连接有效与否的SQL，不同的数据配置不同 -->
         <property name="validationQuery" value="select 1 "/>
-        <property name="filters" value="stat"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="logFilter"/>
-            </list>
-        </property>
+        <!--<property name="filters" value="stat"/>-->
+        <!--<property name="proxyFilters">-->
+            <!--<list>-->
+                <!--<ref bean="logFilter"/>-->
+            <!--</list>-->
+        <!--</property>-->
     </bean>
 
-    <bean id="logFilter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
-        <property name="statementExecutableSqlLogEnable" value="false"/>
-    </bean>
+    <!--<bean id="logFilter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">-->
+        <!--<property name="statementExecutableSqlLogEnable" value="false"/>-->
+    <!--</bean>-->
 
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -148,11 +148,14 @@
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
     </bean>
 
+    <!--配置dao自动扫描-->
+    <!--<context:component-scan base-package="com.hisen.mapper"/>-->
+
     <!-- 5. 配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 注入sqlSessionFactory -->
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出需要扫描Dao接口包 -->
         <property name="basePackage" value="com.hisen.mapper"/>
+        <!-- 注入sqlSessionFactory -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 </beans>

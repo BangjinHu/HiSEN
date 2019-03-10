@@ -13,17 +13,19 @@ import com.hisen.util.CookieUtil;
 import com.hisen.util.JWTUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class UserInfoServiceImpl implements UserInfoService {
     private Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @Resource
+    @Autowired
     private UserInfoMapper userInfoMapper;
 
     @Override

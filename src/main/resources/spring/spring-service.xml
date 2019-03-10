@@ -20,6 +20,7 @@
     </bean>
 
     <!--配置基于注解的声明式事务-->
+    <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>
